@@ -7,6 +7,11 @@ import { DeleteResult, Repository, UpdateResult } from 'typeorm';
 @Injectable()
 export class UserService implements IUserService {
   constructor(
+    /**Não houve implementação de um repositorio genericos dado o fato que o prorio typOrm
+     * já nos fornece a implementação deste padrão de projeto ( Repository). Seria um desperdicio de codigo
+     * uma vez que os metodos de CRUD estão acessiveis sem depender de implementação e adapatações na camada de dados
+     * nos restando apenas implementar a classe Repository<entity> na camada de negocios
+     */
     @InjectRepository(User)
     private readonly userRepository: Repository<User>,
   ) {}
